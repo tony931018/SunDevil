@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class AdminView {
@@ -33,11 +34,11 @@ public class AdminView {
         area.setPrefHeight(300);
 
         Button users = adminButton("View Users");
-        users.setOnAction(e -< {
-            String text = "Users:\n";
+        users.setOnAction(e -> {
+            String text = "Users:\n\n";
 
             for (User user : DataStore.users) {
-                text = "- " + user + "\n";
+                text += "- " + user + "\n";
             }
 
             area.setText(text);
@@ -48,7 +49,7 @@ public class AdminView {
             String text = "Listings:\n\n";
 
             for (Equipment item : DataStore.equipmentList) {
-                text = "- " + item + "\n";
+                text += "- " + item + "\n";
             }
 
             area.setText(text);
@@ -59,11 +60,11 @@ public class AdminView {
             String text = "Rentals:\n\n";
 
             if (DataStore.rentals.isEmpty()) {
-                text = "No current rentals.";
+                text += "No current rentals.";
             }
 
             for (Rental rental : DataStore.rentals) {
-                text = "- " + rental + "\n";
+                text += "- " + rental + "\n";
             }
 
             area.setText(text);
@@ -74,11 +75,11 @@ public class AdminView {
             String text = "Reported Issues:\n\n";
 
             if (DataStore.reports.isEmpty()) {
-                text = "No reports.";
+                text += "No reports.";
             }
 
             for (String report : DataStore.reports) {
-                text = "- " + report + "\n";
+                text += "- " + report + "\n";
             }
 
             area.setText(text);
@@ -123,7 +124,7 @@ public class AdminView {
         });
 
         HBox header = new HBox(20, logo, adminName, logout);
-        header.setPadding(Insets(15));
+        header.setPadding(new Insets(15));
         header.setAlignment(Pos.CENTER_LEFT);
         header.setStyle("-fx-background-color: #222222;");
 
@@ -137,9 +138,9 @@ public class AdminView {
         return label;
     }
 
-    private static button adminButton(string text) {
+    private static Button adminButton(String text) {
         Button button = new Button(text);
-        button.setStyle("-fx-background--color: #8C1D40; -fx-text-fill: white; -fx-font-weight: bold;");
+        button.setStyle("-fx-background-color: #8C1D40; -fx-text-fill: white; -fx-font-weight: bold;");
         return button;
     }
 }
