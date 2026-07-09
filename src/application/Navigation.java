@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class Navigation {
@@ -45,6 +46,7 @@ public class Navigation {
         }
 
         nav.setPadding(new Insets(15));
+        nav.setAlignment(Pos.CENTER_LEFT);
         nav.setStyle("-fx-background-color: #8C1D40;");
 
         return nav;
@@ -62,4 +64,4 @@ public class Navigation {
 
         return button;
     }
-}
+} 
